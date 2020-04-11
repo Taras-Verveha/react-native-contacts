@@ -68,6 +68,8 @@ public class ContactsProvider {
         add(StructuredPostal.COUNTRY);
         add(Note.NOTE);
         add(Website.URL);
+        add(Website.TYPE);
+        add(Website.LABEL);
         add(Event.START_DATE);
         add(Event.TYPE);
     }};
@@ -581,6 +583,7 @@ public class ContactsProvider {
             for (Item item : urls) {
                 WritableMap map = Arguments.createMap();
                 map.putString("url", item.value);
+                map.putString("label", item.label);
                 map.putString("id", item.id);
                 urlAddresses.pushMap(map);
             }
